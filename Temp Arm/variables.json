@@ -1,0 +1,43 @@
+ {
+ "variables": {
+        "nicName": "[concat(uniquestring(resourceGroup().id), 'myVMNic')]",
+        "addressPrefix": "10.0.0.0/16",
+        "subnetName": "Subnet",
+        "subnetPrefix": "10.0.0.0/24",
+        "publicIPAddressName": "[concat(uniquestring(resourceGroup().id), 'myPublicIP')]",
+        "vmName": "[concat(uniquestring(resourceGroup().id), 'myVMFromGalleryImageVersion')]",
+        "virtualNetworkName": "MyVNET",
+        "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]"
+    },
+
+    "variables1": {
+        "appGwPublicIpName": "[concat(parameters('applicationGatewayName'), '-pip')]",
+        "appGwPublicIPRef": "[resourceId('Microsoft.Network/publicIPAddresses',variables('appGwPublicIpName'))]",
+        "appGwSize": "Standard_v2",
+        "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), parameters('subnetName'))]"
+    },
+
+    "variables2": {
+        "appGwPublicIpName": "[concat(parameters('applicationGatewayName'), '-pip')]",
+        "appGwPublicIPRef": "[resourceId('Microsoft.Network/publicIPAddresses',variables('appGwPublicIpName'))]",
+        "appGwSize": "Standard_v2",
+        "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('ExistingVnetName'), parameters('subnetName'))]",
+        "nicName": "[concat(uniquestring(resourceGroup().id), 'myVMNic')]",
+        "addressPrefix": "10.0.0.0/16",
+        "subnetPrefix": "10.0.0.0/24",
+        "publicIPAddressName": "[concat(uniquestring(resourceGroup().id), 'myPublicIP')]",
+        "vmName": "[concat(uniquestring(resourceGroup().id), 'myVMFromGalleryImageVersion')]"
+    },
+
+    "variables3": {
+        "nicName": "[resourceGroup().name]",
+        "addressPrefix": "10.0.0.0/16",
+        "subnetName": "Subnet",
+        "subnetPrefix": "10.0.0.0/24",
+        "publicIPAddressName": "[concat(uniquestring(resourceGroup().name), '-PIP')]",
+        "vmName": "[resourceGroup().name]",
+        "virtualNetworkName": "[resourceGroup().name]",
+        "NetworkSecurityName" : "[resourceGroup().name]",
+        "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]"
+    }
+}

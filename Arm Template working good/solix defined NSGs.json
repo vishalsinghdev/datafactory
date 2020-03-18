@@ -1,0 +1,2365 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "networkSecurityGroups_AADDS_equiptcloud.com_NSG_sourceAddressPrefix": {
+            "defaultValue": null,
+            "type": "securestring"
+        },
+        "networkSecurityGroups_AADDS_equiptcloud.com_NSG_sourceAddressPrefix_1": {
+            "defaultValue": null,
+            "type": "securestring"
+        },
+        "networkSecurityGroups_AADDS_equiptcloud.com_NSG_sourceAddressPrefix_2": {
+            "defaultValue": null,
+            "type": "securestring"
+        },
+        "networkSecurityGroups_AADDS_equiptcloud.com_NSG_sourceAddressPrefix_3": {
+            "defaultValue": null,
+            "type": "securestring"
+        },
+        "networkSecurityGroups_AADDS_equiptcloud.com_NSG_sourceAddressPrefix_4": {
+            "defaultValue": null,
+            "type": "securestring"
+        },
+        "networkSecurityGroups_AADDS_equiptcloud.com_NSG_sourceAddressPrefix_5": {
+            "defaultValue": null,
+            "type": "securestring"
+        },
+        "networkSecurityGroups_AADDS_equiptcloud.com_NSG_sourceAddressPrefix_6": {
+            "defaultValue": null,
+            "type": "securestring"
+        },
+        "networkSecurityGroups_AADDS_equiptcloud.com_NSG_destinationPortRange": {
+            "defaultValue": null,
+            "type": "securestring"
+        },
+        "networkSecurityGroups_AADDS_equiptcloud.com_NSG_sourceAddressPrefix_7": {
+            "defaultValue": null,
+            "type": "securestring"
+        },
+        "securityRules_BPort_22_sourceAddressPrefix": {
+            "defaultValue": null,
+            "type": "securestring"
+        },
+        "securityRules_EPort_22_sourceAddressPrefix": {
+            "defaultValue": null,
+            "type": "securestring"
+        },
+        "securityRules_Port_22_sourceAddressPrefix": {
+            "defaultValue": null,
+            "type": "securestring"
+        },
+        "securityRules_Port_2525_sourceAddressPrefix": {
+            "defaultValue": null,
+            "type": "securestring"
+        },
+        "securityRules_Port_3333_sourceAddressPrefix": {
+            "defaultValue": null,
+            "type": "securestring"
+        },
+        "securityRules_Port_7252_destinationPortRange": {
+            "defaultValue": null,
+            "type": "securestring"
+        },
+        "securityRules_Port_80_sourceAddressPrefix": {
+            "defaultValue": null,
+            "type": "securestring"
+        },
+        "securityRules_Port_range_test_sourceAddressPrefix": {
+            "defaultValue": null,
+            "type": "securestring"
+        },
+        "securityRules_USPort_22_sourceAddressPrefix": {
+            "defaultValue": null,
+            "type": "securestring"
+        },
+        "networkSecurityGroups_AADDS_equiptcloud.com_NSG_name": {
+            "defaultValue": "AADDS-equiptcloud.com-NSG",
+            "type": "string"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Network/networkSecurityGroups",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name')]",
+            "location": "eastus2",
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "9dfae595-87c6-427d-b4cc-98429da453dc",
+                "securityRules": [
+                    {
+                        "name": "AllowSyncWithAzureAD",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "Tcp",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "443",
+                            "sourceAddressPrefix": "AzureActiveDirectoryDomainServices",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 101,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "AllowRD",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "3389",
+                            "sourceAddressPrefix": "121.241.165.182",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 201,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "AllowPSRemoting",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "Tcp",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "5986",
+                            "sourceAddressPrefix": "AzureActiveDirectoryDomainServices",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 301,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "Port_2525",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "2525",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 123,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [
+                                "121.241.165.182",
+                                "183.82.116.68"
+                            ],
+                            "destinationAddressPrefixes": [],
+                            "sourceAddressPrefix": "[parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_sourceAddressPrefix')]"
+                        }
+                    },
+                    {
+                        "name": "Port_389",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "oracle Sources Port",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "1521",
+                            "sourceAddressPrefix": "121.241.165.182",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 102,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "Port_1521_ora",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "1521",
+                            "sourceAddressPrefix": "121.241.165.182",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 331,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "Port_80",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "http-port for Application gateway",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "80",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 103,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [
+                                "121.241.165.182",
+                                "43.248.69.214"
+                            ],
+                            "destinationAddressPrefixes": [],
+                            "sourceAddressPrefix": "[parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_sourceAddressPrefix_1')]"
+                        }
+                    },
+                    {
+                        "name": "Port_88",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Port-for Kerberos",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "88",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 111,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "Port_2529",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "2529",
+                            "sourceAddressPrefix": "121.241.165.182",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 121,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "Port_2526",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "2526",
+                            "sourceAddressPrefix": "121.241.165.182",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 122,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "Port_2527",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "2527",
+                            "sourceAddressPrefix": "121.241.165.182",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 124,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "Port_2528",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "2528",
+                            "sourceAddressPrefix": "121.241.165.182",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 125,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "Port_4100",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "4100",
+                            "sourceAddressPrefix": "121.241.165.182",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 126,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "Port_2424",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "2424",
+                            "sourceAddressPrefix": "121.241.165.182",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 127,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "Port_5000",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "5000",
+                            "sourceAddressPrefix": "121.241.165.182",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 128,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "Port_2181",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "2181",
+                            "sourceAddressPrefix": "121.241.165.182",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 129,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "Port_9092",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "9092",
+                            "sourceAddressPrefix": "121.241.165.182",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 130,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "BPort_22",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Beam-net port",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "22",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 112,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [
+                                "49.204.228.123",
+                                "43.248.69.214"
+                            ],
+                            "destinationAddressPrefixes": [],
+                            "sourceAddressPrefix": "[parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_sourceAddressPrefix_2')]"
+                        }
+                    },
+                    {
+                        "name": "USPort-22",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "sshport for Usnetwork",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "22",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 106,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [
+                                "50.232.98.130",
+                                "182.71.233.18",
+                                "111.93.28.90",
+                                "43.248.69.214"
+                            ],
+                            "destinationAddressPrefixes": [],
+                            "sourceAddressPrefix": "[parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_sourceAddressPrefix_3')]"
+                        }
+                    },
+                    {
+                        "name": "EPort_22",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Emagia-office-ssh-port",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "22",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 107,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [
+                                "183.82.117.1",
+                                "43.248.69.214"
+                            ],
+                            "destinationAddressPrefixes": [],
+                            "sourceAddressPrefix": "[parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_sourceAddressPrefix_4')]"
+                        }
+                    },
+                    {
+                        "name": "Port_22",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "offices-port",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "22",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 108,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [
+                                "121.241.165.182",
+                                "43.248.69.214",
+                                "183.82.116.68"
+                            ],
+                            "destinationAddressPrefixes": [],
+                            "sourceAddressPrefix": "[parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_sourceAddressPrefix_5')]"
+                        }
+                    },
+                    {
+                        "name": "Port_5978",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Data-node-port",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "5978",
+                            "sourceAddressPrefix": "121.241.165.182",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 113,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "Port_139",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "CIFS_Port",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "139",
+                            "sourceAddressPrefix": "121.241.165.182",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 351,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "Port_3337",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "3337",
+                            "sourceAddressPrefix": "121.241.165.182",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 360,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "Port_3333",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "3333",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 161,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [
+                                "121.241.165.182",
+                                "43.248.69.214",
+                                "183.82.116.68"
+                            ],
+                            "destinationAddressPrefixes": [],
+                            "sourceAddressPrefix": "[parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_sourceAddressPrefix_6')]"
+                        }
+                    },
+                    {
+                        "name": "Port_3334",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "3334",
+                            "sourceAddressPrefix": "121.241.165.182",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 162,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "Port_3335",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "3335",
+                            "sourceAddressPrefix": "121.241.165.182",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 370,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "Port_3336",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "3336",
+                            "sourceAddressPrefix": "121.241.165.182",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 164,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "Port_8983",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "solr",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "8983",
+                            "sourceAddressPrefix": "121.241.165.182",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 380,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "Port_7252",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "sourceAddressPrefix": "121.241.165.182",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 390,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [
+                                "7252",
+                                "7253"
+                            ],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": [],
+                            "destinationPortRange": "[parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_destinationPortRange')]"
+                        }
+                    },
+                    {
+                        "name": "Port_9292",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "9292",
+                            "sourceAddressPrefix": "121.241.165.182",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 400,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "Port_8984",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "8984",
+                            "sourceAddressPrefix": "121.241.165.182",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 410,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "Port_8047",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "8047",
+                            "sourceAddressPrefix": "121.241.165.182",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 420,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "Port_390",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "389",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 430,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "NPort_389",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Ldap-port for windows-oracle",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "389",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 109,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "Port_21",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "21",
+                            "sourceAddressPrefix": "121.241.165.182",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 440,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "Port_5671",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "5671",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 110,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "Port_391",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "389",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 100,
+                            "direction": "Outbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "Port_53",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "53",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 116,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "Port_445",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "445",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 118,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "Port_range_test",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "*",
+                            "sourcePortRange": "1025-65535",
+                            "destinationPortRange": "8080",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 119,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [
+                                "121.241.165.182",
+                                "43.248.69.214"
+                            ],
+                            "destinationAddressPrefixes": [],
+                            "sourceAddressPrefix": "[parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_sourceAddressPrefix_7')]"
+                        }
+                    },
+                    {
+                        "name": "Port_8080",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "3389",
+                            "sourceAddressPrefix": "106.200.140.13",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 140,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "Port_vpn",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "3389",
+                            "sourceAddressPrefix": "106.220.117.64",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 145,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "Micro-softPort_22",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Microsoft-team access",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "22",
+                            "sourceAddressPrefix": "207.68.190.32/27",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 450,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "Port_8443",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "HTTP-SSL",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "8443",
+                            "sourceAddressPrefix": "121.241.165.182",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 460,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "Port_443_temp",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "Tcp",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "443",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 470,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "HPort_22",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "22",
+                            "sourceAddressPrefix": "183.82.255.206",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 480,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "MPort_2525",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "2525",
+                            "sourceAddressPrefix": "183.82.116.68",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 490,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "Port_3333_Madhapur",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "3333",
+                            "sourceAddressPrefix": "183.82.116.68",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 500,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    }
+                ],
+                "defaultSecurityRules": [
+                    {
+                        "name": "AllowVnetInBound",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Allow inbound traffic from all VMs in VNET",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "VirtualNetwork",
+                            "destinationAddressPrefix": "VirtualNetwork",
+                            "access": "Allow",
+                            "priority": 65000,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "AllowAzureLoadBalancerInBound",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Allow inbound traffic from azure load balancer",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "AzureLoadBalancer",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 65001,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "DenyAllInBound",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Deny all inbound traffic",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Deny",
+                            "priority": 65500,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "AllowVnetOutBound",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Allow outbound traffic from all VMs to all VMs in VNET",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "VirtualNetwork",
+                            "destinationAddressPrefix": "VirtualNetwork",
+                            "access": "Allow",
+                            "priority": 65000,
+                            "direction": "Outbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "AllowInternetOutBound",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Allow outbound traffic from all VMs to Internet",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "Internet",
+                            "access": "Allow",
+                            "priority": 65001,
+                            "direction": "Outbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "DenyAllOutBound",
+                        "etag": "W/\"d0d8e8c0-522d-4f03-b537-b7475ffbd7f3\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Deny all outbound traffic",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Deny",
+                            "priority": 65500,
+                            "direction": "Outbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/AllowPSRemoting')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "Tcp",
+                "sourcePortRange": "*",
+                "destinationPortRange": "5986",
+                "sourceAddressPrefix": "AzureActiveDirectoryDomainServices",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 301,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/AllowRD')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "3389",
+                "sourceAddressPrefix": "121.241.165.182",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 201,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/AllowSyncWithAzureAD')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "Tcp",
+                "sourcePortRange": "*",
+                "destinationPortRange": "443",
+                "sourceAddressPrefix": "AzureActiveDirectoryDomainServices",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 101,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/BPort_22')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "description": "Beam-net port",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "22",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 112,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [
+                    "49.204.228.123",
+                    "43.248.69.214"
+                ],
+                "destinationAddressPrefixes": [],
+                "sourceAddressPrefix": "[parameters('securityRules_BPort_22_sourceAddressPrefix')]"
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/EPort_22')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "description": "Emagia-office-ssh-port",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "22",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 107,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [
+                    "183.82.117.1",
+                    "43.248.69.214"
+                ],
+                "destinationAddressPrefixes": [],
+                "sourceAddressPrefix": "[parameters('securityRules_EPort_22_sourceAddressPrefix')]"
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/HPort_22')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "22",
+                "sourceAddressPrefix": "183.82.255.206",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 480,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/Micro-softPort_22')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "description": "Microsoft-team access",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "22",
+                "sourceAddressPrefix": "207.68.190.32/27",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 450,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/MPort_2525')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "2525",
+                "sourceAddressPrefix": "183.82.116.68",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 490,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/NPort_389')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "description": "Ldap-port for windows-oracle",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "389",
+                "sourceAddressPrefix": "*",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 109,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/Port_139')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "description": "CIFS_Port",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "139",
+                "sourceAddressPrefix": "121.241.165.182",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 351,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/Port_1521_ora')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "1521",
+                "sourceAddressPrefix": "121.241.165.182",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 331,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/Port_21')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "21",
+                "sourceAddressPrefix": "121.241.165.182",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 440,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/Port_2181')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "2181",
+                "sourceAddressPrefix": "121.241.165.182",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 129,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/Port_22')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "description": "offices-port",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "22",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 108,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [
+                    "121.241.165.182",
+                    "43.248.69.214",
+                    "183.82.116.68"
+                ],
+                "destinationAddressPrefixes": [],
+                "sourceAddressPrefix": "[parameters('securityRules_Port_22_sourceAddressPrefix')]"
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/Port_2424')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "2424",
+                "sourceAddressPrefix": "121.241.165.182",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 127,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/Port_2525')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "2525",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 123,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [
+                    "121.241.165.182",
+                    "183.82.116.68"
+                ],
+                "destinationAddressPrefixes": [],
+                "sourceAddressPrefix": "[parameters('securityRules_Port_2525_sourceAddressPrefix')]"
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/Port_2526')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "2526",
+                "sourceAddressPrefix": "121.241.165.182",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 122,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/Port_2527')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "2527",
+                "sourceAddressPrefix": "121.241.165.182",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 124,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/Port_2528')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "2528",
+                "sourceAddressPrefix": "121.241.165.182",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 125,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/Port_2529')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "2529",
+                "sourceAddressPrefix": "121.241.165.182",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 121,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/Port_3333')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "3333",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 161,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [
+                    "121.241.165.182",
+                    "43.248.69.214",
+                    "183.82.116.68"
+                ],
+                "destinationAddressPrefixes": [],
+                "sourceAddressPrefix": "[parameters('securityRules_Port_3333_sourceAddressPrefix')]"
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/Port_3333_Madhapur')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "3333",
+                "sourceAddressPrefix": "183.82.116.68",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 500,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/Port_3334')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "3334",
+                "sourceAddressPrefix": "121.241.165.182",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 162,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/Port_3335')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "3335",
+                "sourceAddressPrefix": "121.241.165.182",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 370,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/Port_3336')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "3336",
+                "sourceAddressPrefix": "121.241.165.182",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 164,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/Port_3337')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "3337",
+                "sourceAddressPrefix": "121.241.165.182",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 360,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/Port_389')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "description": "oracle Sources Port",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "1521",
+                "sourceAddressPrefix": "121.241.165.182",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 102,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/Port_390')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "389",
+                "sourceAddressPrefix": "*",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 430,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/Port_391')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "389",
+                "sourceAddressPrefix": "*",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 100,
+                "direction": "Outbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/Port_4100')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "4100",
+                "sourceAddressPrefix": "121.241.165.182",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 126,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/Port_443_temp')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "Tcp",
+                "sourcePortRange": "*",
+                "destinationPortRange": "443",
+                "sourceAddressPrefix": "*",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 470,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/Port_445')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "445",
+                "sourceAddressPrefix": "*",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 118,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/Port_5000')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "5000",
+                "sourceAddressPrefix": "121.241.165.182",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 128,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/Port_53')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "53",
+                "sourceAddressPrefix": "*",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 116,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/Port_5671')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "5671",
+                "sourceAddressPrefix": "*",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 110,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/Port_5978')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "description": "Data-node-port",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "5978",
+                "sourceAddressPrefix": "121.241.165.182",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 113,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/Port_7252')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "sourceAddressPrefix": "121.241.165.182",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 390,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [
+                    "7252",
+                    "7253"
+                ],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": [],
+                "destinationPortRange": "[parameters('securityRules_Port_7252_destinationPortRange')]"
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/Port_80')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "description": "http-port for Application gateway",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "80",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 103,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [
+                    "121.241.165.182",
+                    "43.248.69.214"
+                ],
+                "destinationAddressPrefixes": [],
+                "sourceAddressPrefix": "[parameters('securityRules_Port_80_sourceAddressPrefix')]"
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/Port_8047')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "8047",
+                "sourceAddressPrefix": "121.241.165.182",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 420,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/Port_8080')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "3389",
+                "sourceAddressPrefix": "106.200.140.13",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 140,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/Port_8443')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "description": "HTTP-SSL",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "8443",
+                "sourceAddressPrefix": "121.241.165.182",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 460,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/Port_88')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "description": "Port-for Kerberos",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "88",
+                "sourceAddressPrefix": "*",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 111,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/Port_8983')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "description": "solr",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "8983",
+                "sourceAddressPrefix": "121.241.165.182",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 380,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/Port_8984')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "8984",
+                "sourceAddressPrefix": "121.241.165.182",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 410,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/Port_9092')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "9092",
+                "sourceAddressPrefix": "121.241.165.182",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 130,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/Port_9292')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "9292",
+                "sourceAddressPrefix": "121.241.165.182",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 400,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/Port_range_test')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "*",
+                "sourcePortRange": "1025-65535",
+                "destinationPortRange": "8080",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 119,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [
+                    "121.241.165.182",
+                    "43.248.69.214"
+                ],
+                "destinationAddressPrefixes": [],
+                "sourceAddressPrefix": "[parameters('securityRules_Port_range_test_sourceAddressPrefix')]"
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/Port_vpn')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "3389",
+                "sourceAddressPrefix": "106.220.117.64",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 145,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            }
+        },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[concat(parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'), '/USPort-22')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_AADDS_equiptcloud.com_NSG_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "description": "sshport for Usnetwork",
+                "protocol": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "22",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 106,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [
+                    "50.232.98.130",
+                    "182.71.233.18",
+                    "111.93.28.90",
+                    "43.248.69.214"
+                ],
+                "destinationAddressPrefixes": [],
+                "sourceAddressPrefix": "[parameters('securityRules_USPort_22_sourceAddressPrefix')]"
+            }
+        }
+    ]
+}
