@@ -9,7 +9,8 @@
 		"type": "Binary",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobStorageLocation"
+				"type": "AzureBlobStorageLocation",
+				"container": "bootdiagnostics-linux-aad25888-7c63-4369-bda6-6e0dd81b5ddc"
 			}
 		}
 	}
